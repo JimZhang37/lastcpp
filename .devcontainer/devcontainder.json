@@ -1,0 +1,43 @@
+{
+  "name": "Clang C++ Dev Container",
+  "image": "silkeh/clang:latest",
+  "platform": "linux/arm64",
+  "workspaceFolder": "/workspace",
+
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace,type=bind"
+  ],
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "llvm-vs-code-extensions.vscode-clangd",
+        "ms-vscode.cmake-tools",
+        "ms-vscode.cpptools",
+        "ms-vscode.cpptools-extension-pack"
+      ],
+      "settings": {
+        "C_Cpp.intelliSenseEngine": "disabled",
+        "clangd.arguments": [
+          "--background-index",
+          "--clang-tidy",
+          "--completion-style=detailed"
+        ]
+      }
+    }
+  },
+
+  "postCreateCommand": "/bin/bash -c '\
+    apt update && \
+    apt install -y ninja-build gdb git curl && \
+    mkdir -p /opt/cmake && \
+    curl -L https://github.com/Kitware/CMake/releases/download/v4.2.1/cmake-4.2.1-linux-aarch64.sh -o /tmp/cmake.sh && \
+    chmod +x /tmp/cmake.sh && \
+    /tmp/cmake.sh --skip-license --prefix=/opt/cmake && \
+    rm /tmp/cmake.sh && \
+    export PATH=/opt/cmake/bin:$PATH && \
+    cmake --version && clang --version && clang++ --version && clangd --version && ninja --version && gdb --version && git --version
+  '",
+
+  "remoteUser": "root"
+}

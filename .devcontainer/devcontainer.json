@@ -1,0 +1,39 @@
+{
+  "name": "Clang C++ Dev Container (LLVM 21)",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  // "image": "vsc-lastcpp-6839e8e15d47a45dec43603d32ece5ff811e98b6be400673b27e7c29ffb7b8a0",
+  "workspaceFolder": "/workspace",
+  "mounts": [
+    //    "source=${localWorkspaceFolder},target=/workspace,type=bind",
+    {
+      "source": "/Users/yaohua/Desktop/ProgrammingPrinciplesAndPracticeUsingQt",
+      "target": "/workspaces/projectQT",
+      "type": "bind"
+    },
+    {
+      "source": "${localEnv:HOME}/.config/nvim",
+      "target": "/root/.config/nvim",
+      "type": "bind"
+    }
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "llvm-vs-code-extensions.vscode-clangd",
+        "ms-vscode.cmake-tools",
+        "google.geminicodeassist"
+      ],
+      "settings": {
+        "C_Cpp.intelliSenseEngine": "disabled",
+        "clangd.arguments": [
+          "--background-index",
+          "--clang-tidy",
+          "--completion-style=detailed"
+        ]
+      }
+    }
+  },
+  "remoteUser": "root"
+}
