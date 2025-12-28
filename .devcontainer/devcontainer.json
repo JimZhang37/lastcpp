@@ -4,20 +4,20 @@
     "dockerfile": "Dockerfile"
   },
   // "image": "vsc-lastcpp-6839e8e15d47a45dec43603d32ece5ff811e98b6be400673b27e7c29ffb7b8a0",
-  "workspaceFolder": "/workspace",
-  "mounts": [
-    //    "source=${localWorkspaceFolder},target=/workspace,type=bind",
-    {
-      "source": "/Users/yaohua/Desktop/ProgrammingPrinciplesAndPracticeUsingQt",
-      "target": "/workspaces/projectQT",
-      "type": "bind"
-    },
-    {
-      "source": "${localEnv:HOME}/.config/nvim",
-      "target": "/root/.config/nvim",
-      "type": "bind"
-    }
-  ],
+  // "workspaceFolder": "/workspace",
+  // "mounts": [
+  //   //    "source=${localWorkspaceFolder},target=/workspace,type=bind",
+  //   {
+  //     "source": "/Users/yaohua/Desktop/ProgrammingPrinciplesAndPracticeUsingQt",
+  //     "target": "/workspaces/projectQT",
+  //     "type": "bind"
+  //   },
+  //   {
+  //     "source": "${localEnv:HOME}/.config/nvim",
+  //     "target": "/root/.config/nvim",
+  //     "type": "bind"
+  //   }
+  // ],
   "customizations": {
     "vscode": {
       "extensions": [
